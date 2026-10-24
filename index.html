@@ -133,15 +133,7 @@ section{padding-block:72px}
 .in{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}
 .out{background:#d9fdd3;align-self:flex-end;border-bottom-right-radius:4px}
 
-/* Pricing */
-.pricing{background:var(--bg)}
-.price-card{max-width:420px;margin:auto;background:#fff;border:1px solid var(--border);border-radius:16px;padding:34px;text-align:center;box-shadow:var(--shadow)}
-.plan{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:700;margin-bottom:14px}
-.price{font-size:48px;font-weight:800;color:var(--ink);margin:8px 0;font-variant-numeric:tabular-nums}
-.price small{font-size:14px;color:var(--muted);font-weight:500}
-.perks{text-align:left;margin:22px 0;display:grid}
-.perks div{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--border);font-size:14px;color:var(--ink)}
-.perks .ic{color:var(--green-dark)}
+
 
 /* CTA band */
 .cta{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;text-align:center;padding-block:62px}
@@ -207,7 +199,7 @@ footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
     <a class="logo" href="#home" aria-label="Ventrix AI home"><img src="logo-white.png" alt="Ventrix AI"></a>
     <div class="menu">
       <a href="#home">Home</a><a href="#solutions">Solutions</a><a href="#process">Process</a>
-      <a href="#preview">Languages</a><a href="#plans">Plans</a>
+            <a href="#preview">Languages</a>
     </div>
     <div class="nav-actions">
       <button type="button" class="btn btn-white" data-soon="Login">Login</button>
@@ -222,7 +214,7 @@ footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
   <a href="#solutions">Solutions</a>
   <a href="#process">Process</a>
   <a href="#preview">Languages</a>
-  <a href="#plans">Plans</a>
+  
   <button type="button" data-soon="Login">Login</button>
   <button type="button" class="primary" data-soon="Sign up">Get Started</button>
 </div>
@@ -311,29 +303,7 @@ footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
   </div>
 </section>
 
-<section class="pricing" id="plans">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Pricing</span>
-      <h2>One simple plan for growing businesses</h2>
-      <p>No complicated packages. Full access with one affordable monthly subscription.</p>
-    </div>
-    <div class="price-card">
-      <div class="plan">Growth Plan</div>
-      <div class="price">₹499 <small>/ month</small></div>
-      <p style="color:var(--muted);font-size:13px">Full access · Cancel anytime</p>
-      <div class="perks">
-        <div><i class="fas fa-check-circle ic"></i> WhatsApp enquiry management</div>
-        <div><i class="fas fa-check-circle ic"></i> AI-powered automatic replies</div>
-        <div><i class="fas fa-check-circle ic"></i> Bulk promotional campaigns</div>
-        <div><i class="fas fa-check-circle ic"></i> Automatic customer follow-ups</div>
-        <div><i class="fas fa-check-circle ic"></i> Lead status and customer notes</div>
-        <div><i class="fas fa-check-circle ic"></i> Campaign and reply analytics</div>
-      </div>
-      <button type="button" class="btn btn-primary btn-lg" style="width:100%" data-soon="Growth Plan sign-up">Get Started — ₹499/month</button>
-    </div>
-  </div>
-</section>
+
 
 <section class="cta">
   <div class="container">
@@ -356,7 +326,7 @@ footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
           <button type="button" aria-label="YouTube" data-soon="Our YouTube channel"><i class="fab fa-youtube"></i></button>
         </div>
       </div>
-      <div class="footer-col"><h4>Product</h4><a href="#solutions">Features</a><a href="#process">How it works</a><a href="#preview">Languages</a><a href="#plans">Pricing</a></div>
+            <div class="footer-col"><h4>Product</h4><a href="#solutions">Features</a><a href="#process">How it works</a><a href="#preview">Languages</a></div>
       <div class="footer-col"><h4>Account</h4><button type="button" data-soon="Login">Login</button><button type="button" data-soon="Sign up">Get Started</button></div>
       <div class="footer-col"><h4>Support</h4><button type="button" data-soon="Help Centre">Help Centre</button><button type="button" data-soon="Contact Us">Contact Us</button><button type="button" data-soon="Privacy Policy">Privacy Policy</button><button type="button" data-soon="Terms of Service">Terms</button></div>
     </div>
@@ -374,7 +344,7 @@ footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
     <p id="soonText"><span class="soon-feature" id="soonFeature">This feature</span> will be available when Ventrix AI launches. We're putting the finishing touches on it.</p>
     <div class="soon-list">
       <div><i class="fas fa-check-circle ic"></i> AI replies in English, Telugu and Hindi</div>
-      <div><i class="fas fa-check-circle ic"></i> All features for ₹499/month</div>
+      <div><i class="fas fa-check-circle ic"></i> Bulk campaigns, follow-ups and analytics in one place</div>
       <div><i class="fas fa-check-circle ic"></i> Set up in minutes, no technical skills needed</div>
     </div>
     <button type="button" class="btn btn-cta btn-lg" id="soonOk">Got it</button>
