@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ventrix AI — Launching Soon</title>
+<meta name="description" content="Ventrix AI: smart WhatsApp business growth platform. Launching soon.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+/* Layout: the Ventrix AI home page, kept in the brand's blue/green on white with a dark navy bar.
+   Every action on the page opens one "Launching soon" window; section links still scroll. */
+:root{
+  --blue:#226db4;--blue-dark:#185a97;--blue-light:#eaf3fb;
+  --green:#25d366;--green-dark:#128c7e;--green-deep:#075e54;--green-soft:#e7f9ef;
+  --ink:#1b2a3a;--text:#4a5a6a;--muted:#5f7183;
+  --bg:#f5f7fa;--white:#fff;--border:#dfe5ec;--shadow:0 8px 24px rgba(27,42,58,.08);
+  --orange:#d97706;--orange-soft:#fff4e5;--purple:#7c5cd6;--purple-soft:#f1ecfb;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --gutter-l:max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{max-width:100%;overflow-x:clip}
+body{background:var(--white);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:150;background:var(--ink)}
+h1,h2,h3,h4{color:var(--ink);line-height:1.25;text-wrap:balance}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.container{max-width:1180px;margin:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+
+/* Announcement strip */
+.announce{background:linear-gradient(90deg,var(--green-deep),var(--green-dark));color:#fff;font-size:13px;font-weight:600}
+.announce .container{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding-block:9px;text-align:center}
+.announce button{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:99px}
+.announce button:hover{background:rgba(255,255,255,.26)}
+
+/* Nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:100;background:var(--ink);box-shadow:0 2px 12px rgba(27,42,58,.15)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;height:76px}
+.logo img{display:block;height:46px;width:auto}
+.menu{display:none;gap:26px;align-items:center}
+.menu a{color:rgba(255,255,255,.88);font-size:14px;font-weight:600;transition:color .2s}
+.menu a:hover{color:#fff}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:8px;font-size:13px;font-weight:700;transition:.2s;border:1px solid transparent;font-family:inherit;cursor:pointer}
+.btn-white{background:#fff;color:var(--blue)}.btn-white:hover{background:var(--blue-light)}
+.btn-cta{background:#15803d;color:#fff;box-shadow:0 4px 14px rgba(21,128,61,.35)}.btn-cta:hover{background:#166534;transform:translateY(-1px)}
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue-dark)}
+.btn-outline{color:var(--blue);border-color:var(--blue);background:#fff}.btn-outline:hover{background:var(--blue-light)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-dark)}
+.btn-lg{min-height:50px;padding:0 26px;font-size:15px;border-radius:10px}
+.hamburger{display:grid;place-items:center;width:42px;height:42px;border-radius:8px;background:rgba(255,255,255,.15);color:#fff;font-size:18px;border:1px solid rgba(255,255,255,.3)}
+.mobile-menu{display:none;flex-direction:column;gap:8px;padding:14px var(--gutter-r) 20px var(--gutter-l);background:#fff;border-bottom:1px solid var(--border)}
+.mobile-menu.open{display:flex;animation:fadeUp .3s ease}
+.mobile-menu a,.mobile-menu button{padding:13px;border-radius:8px;background:var(--bg);font-weight:600;font-size:14px;text-align:center;color:var(--ink);border:0}
+.mobile-menu .primary{background:#15803d;color:#fff}
+@media(max-width:600px){.nav-actions .btn{display:none}.logo img{height:36px}}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#f3f8fd,#fff);padding-block:64px 56px}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.soon-pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:99px;background:var(--green-soft);color:var(--green-deep);font-size:13px;font-weight:700;margin-bottom:18px;border:1px solid #bdeccf}
+.dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--green)}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--green);animation:ping 1.6s ease-out infinite}
+.hero h1{font-size:clamp(30px,6vw,48px);margin-bottom:18px;letter-spacing:-.02em}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--muted);font-size:16px;max-width:560px}
+.hero-actions{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.hero-note{display:flex;align-items:center;gap:9px;margin-top:18px;color:var(--muted);font-size:13px}
+.hero-note .ic{color:var(--green-dark)}
+.hero-copy{animation:fadeUp .7s ease both}
+.hero-image-wrap{position:relative;display:flex;justify-content:center;animation:fadeUp .8s .1s ease both}
+.hero-image{display:block;width:88%;max-width:440px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 24px 50px rgba(7,94,84,.25)}
+.float-chip{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);padding:11px 15px;border-radius:14px;box-shadow:0 16px 36px rgba(27,42,58,.16);font-size:12.5px;font-weight:700;animation:float 5s ease-in-out infinite}
+.float-chip .ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#fff;font-size:13px}
+.chip1{top:8%;left:0}.chip1 .ic{background:var(--green-dark)}
+.chip2{bottom:10%;right:0;animation-delay:1.2s}.chip2 .ic{background:var(--blue)}
+
+/* Industries strip */
+.logos{background:#fff;border-block:1px solid var(--border);padding-block:20px}
+.logos .container{display:flex;justify-content:center;gap:12px 14px;flex-wrap:wrap}
+.logos button{display:flex;gap:8px;align-items:center;padding:8px 14px;border-radius:99px;border:1px solid var(--border);background:#fff;color:var(--muted);font-weight:700;font-size:13px;transition:.2s}
+.logos button:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+.logos .ic{color:var(--blue)}
+
+/* Sections */
+section{padding-block:72px}
+.section-head{text-align:center;max-width:680px;margin:0 auto 44px}
+.eyebrow{display:block;color:var(--green-dark);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.section-head h2{font-size:clamp(25px,5vw,36px);margin-bottom:12px;letter-spacing:-.01em}
+.section-head p{color:var(--muted);font-size:15px}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:1fr}
+
+.card{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px;box-shadow:var(--shadow);transition:.25s;font:inherit;color:inherit;cursor:pointer}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(27,42,58,.1);border-color:#c6d8ea}
+.card-icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:19px;margin-bottom:16px}
+.ci-blue{background:var(--blue-light);color:var(--blue)}.ci-green{background:var(--green-soft);color:var(--green-dark)}
+.ci-orange{background:var(--orange-soft);color:var(--orange)}.ci-purple{background:var(--purple-soft);color:var(--purple)}
+.card h3{font-size:17px;margin-bottom:8px}.card p{color:var(--muted);font-size:14px}
+.card .more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--blue);font-size:13px;font-weight:700}
+
+/* Steps */
+.how{background:var(--bg)}
+.steps{display:grid;gap:18px;max-width:1000px;margin:auto}
+.step{display:flex;gap:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+.step-num{flex-shrink:0;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--blue);font-weight:800}
+.step h3{font-size:16px;margin-bottom:6px}.step p{color:var(--muted);font-size:14px}
+
+/* WhatsApp chat preview */
+.preview{background:#fff}
+.preview-grid{display:grid;gap:34px;align-items:center}
+.preview h2{font-size:clamp(24px,5vw,34px);margin-bottom:14px}
+.preview p{color:var(--muted);margin-bottom:14px}
+.langs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.langs span{padding:6px 12px;border-radius:99px;background:var(--blue-light);color:var(--blue);font-size:12.5px;font-weight:700}
+.phone{max-width:380px;width:100%;margin:auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:14px;box-shadow:0 24px 50px rgba(27,42,58,.14)}
+.phone-head{display:flex;align-items:center;gap:10px;background:var(--green-deep);color:#fff;padding:11px 13px;border-radius:14px}
+.phone-head .av{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--green-deep);display:grid;place-items:center;font-weight:800;font-size:14px}
+.phone-head strong{display:block;font-size:13px}.phone-head span{font-size:10.5px;opacity:.85}
+.chat{display:flex;flex-direction:column;gap:9px;padding:14px 4px 4px;background:#efeae2;border-radius:12px;margin-top:10px;padding-inline:10px;padding-bottom:12px}
+.msg{max-width:86%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5;color:var(--ink)}
+.msg small{display:block;text-align:right;font-size:10px;color:#667085;margin-top:3px}
+.in{background:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+.out{background:#d9fdd3;align-self:flex-end;border-bottom-right-radius:4px}
+
+/* Pricing */
+.pricing{background:var(--bg)}
+.price-card{max-width:420px;margin:auto;background:#fff;border:1px solid var(--border);border-radius:16px;padding:34px;text-align:center;box-shadow:var(--shadow)}
+.plan{display:inline-block;padding:6px 14px;border-radius:99px;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:700;margin-bottom:14px}
+.price{font-size:48px;font-weight:800;color:var(--ink);margin:8px 0;font-variant-numeric:tabular-nums}
+.price small{font-size:14px;color:var(--muted);font-weight:500}
+.perks{text-align:left;margin:22px 0;display:grid}
+.perks div{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--border);font-size:14px;color:var(--ink)}
+.perks .ic{color:var(--green-dark)}
+
+/* CTA band */
+.cta{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;text-align:center;padding-block:62px}
+.cta h2{color:#fff;font-size:clamp(24px,5vw,34px);margin-bottom:12px}
+.cta p{color:rgba(255,255,255,.88);max-width:600px;margin:0 auto 26px}
+.cta .btn{background:#fff;color:var(--blue-dark)}.cta .btn:hover{transform:translateY(-3px)}
+
+/* Footer */
+footer{background:var(--ink);color:#a9b8c8;padding-block:50px 25px}
+.footer-grid{display:grid;gap:30px}
+.footer-brand img{display:block;height:44px;width:auto}
+.footer-brand p{font-size:13px;max-width:320px;margin-top:12px}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials button{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;font-size:16px;transition:.2s}
+.socials button:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.footer-col h4{color:#fff;font-size:14px;margin-bottom:14px}
+.footer-col a,.footer-col button{display:block;background:none;border:0;padding:5px 0;color:#a9b8c8;font-size:13px;text-align:left;transition:color .2s}
+.footer-col a:hover,.footer-col button:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:35px;padding-top:20px;text-align:center;font-size:12px}
+
+/* Launching soon window */
+.soon-overlay{position:fixed;inset:0;z-index:300;background:rgba(27,42,58,.6);backdrop-filter:blur(4px);display:grid;place-items:center;padding:16px max(16px, env(safe-area-inset-right,0px)) 16px max(16px, env(safe-area-inset-left,0px))}
+.soon-overlay[hidden]{display:none!important}
+.soon-box{position:relative;width:100%;max-width:420px;background:#fff;border-radius:20px;padding:34px 28px 26px;text-align:center;box-shadow:0 24px 60px rgba(27,42,58,.3);animation:fadeUp .3s ease}
+.soon-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);font-size:16px;display:grid;place-items:center}
+.soon-close:hover{background:var(--border)}
+.soon-rocket{width:72px;height:72px;margin:0 auto 16px;border-radius:20px;display:grid;place-items:center;font-size:30px;color:#fff;background:linear-gradient(135deg,var(--green-deep),var(--green));box-shadow:0 12px 26px rgba(18,140,126,.35);animation:float 3s ease-in-out infinite}
+.soon-tag{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--green-soft);color:var(--green-deep);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.soon-box h3{font-size:22px;margin-bottom:8px}
+.soon-box p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.soon-feature{color:var(--ink);font-weight:700}
+.soon-list{display:grid;gap:8px;text-align:left;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:var(--ink)}
+.soon-list div{display:flex;gap:9px;align-items:center}
+.soon-list .ic{color:var(--green-dark)}
+.soon-box .btn{width:100%}
+
+@media(min-width:760px){
+  .hero{padding-block:84px 70px}
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .hero-actions{flex-direction:row}
+  .g3{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .preview-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}
+}
+@media(min-width:1000px){
+  .menu{display:flex}.hamburger,.mobile-menu{display:none!important}
+  .g3{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:759px){.float-chip{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div class="announce">
+  <div class="container">
+    <span><i class="fas fa-rocket ic"></i> Ventrix AI is launching soon. Be one of the first businesses to grow on WhatsApp with AI.</span>
+    <button type="button" data-soon="Early access">Get early access</button>
+  </div>
+</div>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home" aria-label="Ventrix AI home"><img src="logo-white.png" alt="Ventrix AI"></a>
+    <div class="menu">
+      <a href="#home">Home</a><a href="#solutions">Solutions</a><a href="#process">Process</a>
+      <a href="#preview">Languages</a><a href="#plans">Plans</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="btn btn-white" data-soon="Login">Login</button>
+      <button type="button" class="btn btn-cta" data-soon="Sign up">Get Started</button>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#process">Process</a>
+  <a href="#preview">Languages</a>
+  <a href="#plans">Plans</a>
+  <button type="button" data-soon="Login">Login</button>
+  <button type="button" class="primary" data-soon="Sign up">Get Started</button>
+</div>
+
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="soon-pill"><span class="dot"></span> Launching soon in India</span>
+      <h1>Turn every WhatsApp conversation into a <span>business opportunity</span></h1>
+      <p>Ventrix AI helps shops, agencies, coaches and service businesses reply instantly, follow up automatically, and turn more WhatsApp enquiries into paying customers.</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary btn-lg" data-soon="Sign up"><i class="fas fa-rocket"></i> Get Started Now</button>
+        <a class="btn btn-outline btn-lg" href="#process"><i class="fas fa-play"></i> See How It Works</a>
+      </div>
+      <div class="hero-note"><i class="fas fa-shield-halved ic"></i> Built for small businesses, agencies and growing teams</div>
+    </div>
+
+        <div class="hero-image-wrap">
+      <img class="hero-image" src="hero-robot.jpeg" alt="Ventrix AI assistant replying to WhatsApp customers" width="899" height="1200">
+    </div>
+  </div>
+</header>
+
+<div class="logos" aria-label="Who it is for">
+  <div class="container">
+    <button type="button" data-soon="Ventrix AI for local shops"><i class="fas fa-store ic"></i> Local Shops</button>
+    <button type="button" data-soon="Ventrix AI for agencies"><i class="fas fa-briefcase ic"></i> Agencies</button>
+    <button type="button" data-soon="Ventrix AI for coaches"><i class="fas fa-graduation-cap ic"></i> Coaches</button>
+    <button type="button" data-soon="Ventrix AI for real estate"><i class="fas fa-house ic"></i> Real Estate</button>
+    <button type="button" data-soon="Ventrix AI for clinics"><i class="fas fa-stethoscope ic"></i> Clinics</button>
+  </div>
+</div>
+
+<section id="solutions">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Features</span>
+      <h2>Built to solve everyday business problems</h2>
+      <p>Stop losing customers to late replies, missed follow-ups and unorganised enquiries.</p>
+    </div>
+    <div class="grid g3">
+      <button type="button" class="card" data-soon="Instant Customer Response"><div class="card-icon ci-blue"><i class="fas fa-comments"></i></div><h3>Instant Customer Response</h3><p>Answer common questions immediately, even when your team is busy or offline.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+      <button type="button" class="card" data-soon="Smart Lead Qualification"><div class="card-icon ci-green"><i class="fas fa-user-check"></i></div><h3>Smart Lead Qualification</h3><p>Spot serious buyers automatically and focus on the customers most likely to purchase.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+      <button type="button" class="card" data-soon="Automatic Follow-ups"><div class="card-icon ci-orange"><i class="fas fa-rotate"></i></div><h3>Automatic Follow-ups</h3><p>Send reminders and follow-up messages without tracking every customer by hand.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+      <button type="button" class="card" data-soon="Bulk WhatsApp Campaigns"><div class="card-icon ci-purple"><i class="fas fa-bullhorn"></i></div><h3>Bulk WhatsApp Campaigns</h3><p>Send offers and updates to hundreds of customers at once, or schedule them for later.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+      <button type="button" class="card" data-soon="Business Insights"><div class="card-icon ci-blue"><i class="fas fa-chart-simple"></i></div><h3>Business Insights</h3><p>See which campaigns bring replies, leads and real customer interest.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+      <button type="button" class="card" data-soon="Team Dashboard"><div class="card-icon ci-green"><i class="fas fa-users"></i></div><h3>Team-friendly Dashboard</h3><p>Manage conversations, contacts and campaigns from one simple workspace.</p><span class="more">Learn more <i class="fas fa-arrow-right"></i></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From enquiry to customer in four steps</h2>
+      <p>A simple process designed for busy business owners.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><h3>Connect your business</h3><p>Add your business details and link your WhatsApp Business number.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>Add your customers</h3><p>Import existing contacts from Excel or capture new enquiries automatically.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>Set AI rules</h3><p>Teach the AI how to answer questions, share prices and qualify leads.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div><h3>Grow automatically</h3><p>Send campaigns, follow up and track results from your dashboard.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="preview" id="preview">
+  <div class="container preview-grid">
+    <div>
+      <span class="eyebrow">Speaks your customer's language</span>
+      <h2>Replies in English, Telugu and Hindi</h2>
+      <p>Customers write the way they are comfortable. Ventrix AI detects the language and replies in the same one, so nobody waits for a translator.</p>
+      <div class="langs"><span>English</span><span>తెలుగు</span><span>हिंदी</span></div>
+      <button type="button" class="btn btn-green btn-lg" style="margin-top:26px" data-soon="AI replies demo"><i class="fab fa-whatsapp"></i> Try the AI assistant</button>
+    </div>
+    <div class="phone" aria-label="Example WhatsApp chat">
+      <div class="phone-head"><div class="av">V</div><div><strong>Ventrix AI Assistant</strong><span>Online · replies instantly</span></div></div>
+      <div class="chat">
+        <div class="msg in">మీ ప్లాన్ ధర ఎంత?<small>11:42 AM</small></div>
+        <div class="msg out">నమస్కారం! 🙏 మా ప్లాన్ నెలకు ₹499. అన్ని ఫీచర్లు ఉంటాయి.<small>11:42 AM ✓✓</small></div>
+        <div class="msg in">Do you deliver to Kukatpally?<small>11:43 AM</small></div>
+        <div class="msg out">Yes! We deliver across Hyderabad within 24 hours. Shall I book an order for you?<small>11:43 AM ✓✓</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="plans">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>One simple plan for growing businesses</h2>
+      <p>No complicated packages. Full access with one affordable monthly subscription.</p>
+    </div>
+    <div class="price-card">
+      <div class="plan">Growth Plan</div>
+      <div class="price">₹499 <small>/ month</small></div>
+      <p style="color:var(--muted);font-size:13px">Full access · Cancel anytime</p>
+      <div class="perks">
+        <div><i class="fas fa-check-circle ic"></i> WhatsApp enquiry management</div>
+        <div><i class="fas fa-check-circle ic"></i> AI-powered automatic replies</div>
+        <div><i class="fas fa-check-circle ic"></i> Bulk promotional campaigns</div>
+        <div><i class="fas fa-check-circle ic"></i> Automatic customer follow-ups</div>
+        <div><i class="fas fa-check-circle ic"></i> Lead status and customer notes</div>
+        <div><i class="fas fa-check-circle ic"></i> Campaign and reply analytics</div>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg" style="width:100%" data-soon="Growth Plan sign-up">Get Started — ₹499/month</button>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Never miss another WhatsApp customer</h2>
+    <p>Let Ventrix AI reply, follow up and organise your enquiries while you focus on growing your business.</p>
+    <button type="button" class="btn btn-lg" data-soon="Early access"><i class="fas fa-bell"></i> Notify me at launch</button>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-white.png" alt="Ventrix AI">
+        <p>A smart WhatsApp business growth platform for automatic replies, customer follow-ups, campaigns and lead management.</p>
+        <div class="socials">
+          <button type="button" aria-label="WhatsApp" data-soon="Our WhatsApp channel"><i class="fab fa-whatsapp"></i></button>
+          <button type="button" aria-label="Instagram" data-soon="Our Instagram page"><i class="fab fa-instagram"></i></button>
+          <button type="button" aria-label="LinkedIn" data-soon="Our LinkedIn page"><i class="fab fa-linkedin-in"></i></button>
+          <button type="button" aria-label="YouTube" data-soon="Our YouTube channel"><i class="fab fa-youtube"></i></button>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><a href="#solutions">Features</a><a href="#process">How it works</a><a href="#preview">Languages</a><a href="#plans">Pricing</a></div>
+      <div class="footer-col"><h4>Account</h4><button type="button" data-soon="Login">Login</button><button type="button" data-soon="Sign up">Get Started</button></div>
+      <div class="footer-col"><h4>Support</h4><button type="button" data-soon="Help Centre">Help Centre</button><button type="button" data-soon="Contact Us">Contact Us</button><button type="button" data-soon="Privacy Policy">Privacy Policy</button><button type="button" data-soon="Terms of Service">Terms</button></div>
+    </div>
+    <div class="footer-bottom">© 2026 Ventrix Technologies. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- Launching soon window -->
+<div class="soon-overlay" id="soonPopup" hidden>
+  <div class="soon-box" role="dialog" aria-modal="true" aria-labelledby="soonTitle" aria-describedby="soonText">
+    <button type="button" class="soon-close" id="soonClose" aria-label="Close"><i class="fas fa-xmark"></i></button>
+    <div class="soon-rocket"><i class="fas fa-rocket"></i></div>
+    <span class="soon-tag">Coming soon</span>
+    <h3 id="soonTitle">Launching Soon!</h3>
+    <p id="soonText"><span class="soon-feature" id="soonFeature">This feature</span> will be available when Ventrix AI launches. We're putting the finishing touches on it.</p>
+    <div class="soon-list">
+      <div><i class="fas fa-check-circle ic"></i> AI replies in English, Telugu and Hindi</div>
+      <div><i class="fas fa-check-circle ic"></i> All features for ₹499/month</div>
+      <div><i class="fas fa-check-circle ic"></i> Set up in minutes, no technical skills needed</div>
+    </div>
+    <button type="button" class="btn btn-cta btn-lg" id="soonOk">Got it</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+<script>
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// "Launching soon" window for every button that has data-soon
+const popup = document.getElementById('soonPopup');
+let lastFocus = null;
+
+function openSoon(name){
+  document.getElementById('soonFeature').textContent = name || 'This feature';
+  lastFocus = document.activeElement;
+  popup.hidden = false;
+  document.body.style.overflow = 'hidden';
+  mobileMenu.classList.remove('open');
+  document.getElementById('soonOk').focus();
+}
+function closeSoon(){
+  if (popup.hidden) return;
+  popup.hidden = true;
+  document.body.style.overflow = '';
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-soon]');
+  if (el) { e.preventDefault(); openSoon(el.dataset.soon); }
+});
+document.getElementById('soonClose').addEventListener('click', closeSoon);
+document.getElementById('soonOk').addEventListener('click', closeSoon);
+popup.addEventListener('click', (e) => { if (e.target === popup) closeSoon(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSoon(); });
+</script>
+
+</body>
+</html>
